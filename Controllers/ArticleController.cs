@@ -79,7 +79,7 @@ namespace TechBlogs.Controllers
                 }
                 
                 var response = await _articleService.AddArticle(article);
-                return response.Success ? Ok("Added article successfully.") : Ok(response.Message);
+                return Ok(response.Message);
             }
             catch (Exception ex)
             {
@@ -98,7 +98,7 @@ namespace TechBlogs.Controllers
                     return BadRequest("Id is invalid.");
                 }
                 var response = await _articleService.UpdateArticle(article);
-                return response.Success ? Ok("Article updated successfully.") : Ok(response.Message);
+                return Ok(response.Message);
             }
             catch(Exception ex)
             {
@@ -117,7 +117,7 @@ namespace TechBlogs.Controllers
                     return BadRequest("Id is invalid.");
                 }
                 var response = await _articleService.DeleteArticle(id);
-                return response.Success ? Ok("Article deleted successfully.") : Ok(response.Message);
+                return Ok(response.Message);
             }
             catch (Exception ex)
             {

@@ -9,6 +9,7 @@ namespace TechBlogs.Models
         public string Content { get; set; }
         public List<string> Tags { get; set; }
         public string UserId { get; set; }
+        public string UserName { get; set; }
         public string Status { get; set; }
         public long coins { get; set; }
     }

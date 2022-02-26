@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TechBlogs.Models;
 using TechBlogs.Services.Interfaces;
@@ -12,29 +13,128 @@ namespace TechBlogs.Services
 
         }
 
-        public Task<Result> AddArticle(Article article)
+        public async Task<Result> AddArticle(Article article)
         {
-            throw new System.NotImplementedException();
+            var result = new Result();
+            try
+            {
+                //TO-DO Add db call
+                result.Success = true;
+                result.Message = "Added article successfully.";
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
         }
 
-        public Task<Result> DeleteArticle(string id)
+        public async Task<Result> DeleteArticle(string id)
         {
-            throw new System.NotImplementedException();
+            var result = new Result();
+            try
+            {
+                //TO-DO Add db call
+                result.Success = true;
+                result.Message = "Article deleted successfully.";
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
         }
 
-        public Task<Article> GetArticle(string id)
+        public async Task<Article> GetArticle(string id)
         {
-            throw new System.NotImplementedException();
+            var result = new Article();
+            try
+            {
+                result = new Article()
+                {
+                    UserId = "abcd",
+                    UserName = "Abcd XYZ",
+                    Id = 1234,
+                    Title = "qwehiuqwhre qiuwehqwiu",
+                    Content = "asdajshd asjdask aksjdhakjsd akjsdhk",
+                    Status = "Published",
+                    Tags = new List<string>() { "abcd", "cdef" }
+                };
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
         }
 
-        public Task<List<Article>> GetArticles()
+        public async Task<List<Article>> GetArticles()
         {
-            throw new System.NotImplementedException();
+            var result = new List<Article>();
+            try
+            {
+                result.Add(new Article()
+                {
+                    UserId = "abcd",
+                    UserName = "Abcd XYZ",
+                    Id = 1234,
+                    Title = "qwehiuqwhre qiuwehqwiu",
+                    Content = "asdajshd asjdask aksjdhakjsd akjsdhk",
+                    Status = "Published",
+                    Tags = new List<string>() { "abcd", "cdef" }
+                });
+                result.Add(new Article()
+                {
+                    UserId = "abcd",
+                    UserName = "Abcd XYZ",
+                    Id = 1235,
+                    Title = "qwehiuqwhre qiuwehqwiu",
+                    Content = "asdajshd asjdask aksjdhakjsd akjsdhk",
+                    Status = "Published",
+                    Tags = new List<string>() { "abcd", "cdef" }
+                });
+                result.Add(new Article()
+                {
+                    UserId = "abcd",
+                    UserName = "Abcd XYZ",
+                    Id = 1236,
+                    Title = "qwehiuqwhre qiuwehqwiu",
+                    Content = "asdajshd asjdask aksjdhakjsd akjsdhk",
+                    Status = "Published",
+                    Tags = new List<string>() { "abcd", "cdef" }
+                });
+                result.Add(new Article()
+                {
+                    UserId = "abcd",
+                    UserName = "Abcd XYZ",
+                    Id = 1237,
+                    Title = "qwehiuqwhre qiuwehqwiu",
+                    Content = "asdajshd asjdask aksjdhakjsd akjsdhk",
+                    Status = "Published",
+                    Tags = new List<string>() { "abcd", "cdef" }
+                });
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
         }
 
-        public Task<Result> UpdateArticle(Article article)
+        public async Task<Result> UpdateArticle(Article article)
         {
-            throw new System.NotImplementedException();
+            var result = new Result();
+            try
+            {
+                //TO-DO Add db call
+                result.Success = true;
+                result.Message = "Article updated successfully.";
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
         }
     }
 }
