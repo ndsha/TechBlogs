@@ -14,6 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TechBlogs.Services;
+using TechBlogs.Services.Interfaces;
 
 namespace TechBlogs
 {
@@ -33,6 +35,8 @@ namespace TechBlogs
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
 
             services.AddControllers();
+            services.AddTransient<IArticleService, ArticleService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TechBlogs", Version = "v1" });
