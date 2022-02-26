@@ -25,7 +25,7 @@ namespace TechBlogs
         {
             Configuration = configuration;
         }
-        public string  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -36,10 +36,12 @@ namespace TechBlogs
 
             services.AddCors(options =>
             {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
+                options.AddDefaultPolicy(
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:3000");
+                                      builder.WithOrigins("http://localhost:3000")
+                                                .AllowAnyMethod()
+                                                .AllowAnyHeader();
                                   });
             });
 
@@ -63,7 +65,7 @@ namespace TechBlogs
             }
 
             app.UseHttpsRedirection();
-            app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors();
             app.UseRouting();
 
             app.UseAuthentication();
